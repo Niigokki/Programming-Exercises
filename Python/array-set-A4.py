@@ -50,6 +50,7 @@ def isEmpty():
 
 
 def equals(list):
+    # enumerate is very handy - adds index value to our iteration
     for i, element in enumerate(list):
         testval1 = testlist.count(element)
         testval2 = list.count(element)
@@ -61,23 +62,40 @@ def equals(list):
 
 
 def union(list):
-    return "placeholder"
+    list += testlist
+    list.sort()
+    print list
+    return True
 
 
-def intersetion(list):
-    return "placeholder"
+def intersection(list):
+    list.sort()
+    testlist.sort()
+    intersectionlist = []
+    for element in list:
+        if element in testlist:
+            intersectionlist.append(element)
+    print intersectionlist
+    return True
 
 
 def complement(list):
-    return "placeholder"
-
-
-def iterator():
-    return "placeholder"
+    list.sort()
+    testlist.sort()
+    complementlist = []
+    for element in list:
+        if element not in testlist:
+            complementlist.append(element)
+    complementlist.sort()
+    print complementlist
+    return True
 
 
 if __name__ == '__main__':
     print testlist
     isEmpty()
-    blankList = []
-    equals(blankList)
+    blankList = [x**2 for x in range(10)]
+    blankList.reverse()
+    print blankList
+    intersection(blankList)
+    complement(blankList)
